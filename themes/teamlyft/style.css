@@ -1,0 +1,243 @@
+/*
+Theme Name: Hub Child
+Theme URI: http://www.bvaccel.com
+Version: 1.0
+Description: Designed by Keith Michelson
+Author: Keith MIchelson
+Author URI: http://www.bvaccel.com
+Template: hub
+
+*/
+
+@import "../hub/style.css";
+
+@font-face {
+  font-family: 'GothamMedium';
+  src: url('fonts/Gotham-Medium.woff') format('woff'),
+       url('fonts/Gotham-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'GothamBold';
+  src: url('fonts/Gotham-Bold.woff') format('woff'),
+       url('fonts/Gotham-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'GothamBook';
+  src: url('fonts/Gotham-Book.woff') format('woff'),
+       url('fonts/Gotham-Book.ttf') format('truetype');
+}
+
+html {
+	font-weight: 300;
+	color: #585551;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	font-family: "GothamBook","Helvetica Neue",Helvetica,Arial,sans-serif;
+	color: #585551;	
+}
+
+#navigation ul.nav li a {
+	font-family: "GothamMedium","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 15px;
+}
+
+
+/* need for meme maker to not overlay background color */
+.hentry img, .hentry img.thumbnail {
+	background: transparent;
+}
+
+#logo {
+	height: 25px;
+	padding: 18px 0;
+}
+
+#header-wrapper {
+	background: #333d47;
+	margin: 0;
+	padding: 0;
+}
+
+a.button, a.comment-reply-link, #commentform #submit, .submit, input[type=submit], input.button, button.button, #wrapper .woo-sc-button, .follow-link a, .our-team-author-archive a {
+	color: #fff;
+	background-color: #00b2a9;
+	border-color: #00b2a9;
+	-webkit-border-radius: 0.3em;
+	-moz-border-radius: 0.3em;
+	-ms-border-radius: 0.3em;
+	-o-border-radius: 0.3em;
+	border-radius: 0.3em;
+	padding: .6em 1em .4em;
+	font-size: 1rem;
+	font-weight: 500;
+	vertical-align: middle;
+}
+
+a.button:hover, a.comment-reply-link:hover, #commentform #submit:hover, .submit:hover, input[type=submit]:hover, input.button:hover, button.button:hover, #wrapper .woo-sc-button, .follow-link a:hover, .our-team-author-archive a:hover {
+	background-color: #008982;
+	border-color: #008982;
+}
+
+@media only screen and (min-width: 768px) {
+	#navigation ul.nav li a:link {
+		color: #f4f5f5;	
+	}
+	#navigation ul.nav li a:visited {
+		color: #f4f5f5;
+	}
+
+	/* NAVIGATION */
+	#navigation ul.nav > li {
+		border-top: 4px solid transparent !important;
+		border-bottom: none !important;
+		margin: 0 .857em;
+		text-transform: uppercase;
+		padding: 27px 0;
+	}
+	#navigation ul.nav > li:hover {
+		border-color: transparent !important;
+	}
+	#navigation ul.nav > li.current-menu-item {
+		border-color: #ffffff !important;
+	}
+	#navigation ul.nav > li.current-menu-item a {
+		color: #ffffff !important;
+	}
+	/* Disable Active on Praise Link*/
+	#navigation ul.nav > #menu-item-115.current-menu-item {
+		border-top: 4px solid transparent !important;
+	}
+	#navigation ul.nav > li.parent > a:after {
+		border-top: 4px solid transparent !important;
+		border-bottom: none;
+	}
+	#navigation ul.nav li a {
+		padding: 0 0 .146em;
+		text-shadow: none;
+		border: 0;
+		color: #ffffff;
+	}
+	#navigation ul.nav li a:hover {
+		border-color: transparent !important;
+	}
+	#navigation ul.nav ul:before {
+		border-style: solid;
+		border-width: 0 7px 7px 7px;
+		border-color: transparent transparent #ffffff transparent !important;
+	}
+	#navigation ul.nav ul li a {
+		border-top: 4px solid #ffffff !important;
+		border-bottom: none !important;
+	}
+	#navigation ul.nav ul li a:hover {
+		border-top: none !important;
+	}
+	#navigation ul.nav ul li.current-menu-item a {
+		border-top: 4px solid #ffffff !important;
+		border-bottom: none !important;
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "GothamBold","Helvetica Neue",Helvetica,Arial,sans-serif;
+	color: #585551;
+	/*letter-spacing: 0.08em;*/
+}
+
+h1, .hentry header h1, .hentry header h2 {
+	font-style: normal;
+	margin-top: 1em;
+	margin-bottom: 0;
+	line-height: 1.25;
+	font-size: 48px;
+	font-weight: 500;
+}
+
+#intro-message h2 {
+	/*text-transform: uppercase;*/
+}
+
+p {
+	font-size: 16px;
+}
+
+/* lyftU Video Page */
+
+#video-section {
+	clear: both;
+	display: block;
+	width: 100%;
+	background: red;
+}
+
+.video-left {
+	float: left;
+	width: 350px;
+}
+
+.video-left img {
+	margin: 0 0 10px 0;
+} 
+
+.clear {
+	clear: both;
+}
+
+.box {
+	width: 300px;
+	font-size: 14px;
+	line-height: 16px;
+	margin: 0 0 20px 0;
+	height: 245px;
+}
+
+/* Contact Page */
+
+#contactForm h2 {
+	display: none;
+}
+
+#footer-wrapper {
+	background: #333D47;
+	border-top: none;
+}
+
+/* testimonials */
+
+.testimonial img {
+	float: left;
+	margin-right: 15px;
+	padding: 0 0 35px 0;
+}
+
+/* Meme Maker */
+
+.right_content {
+	display: none;
+}
+
+.form-hide {
+	display: none;
+}
+
+.img_gallery img.hide {
+	display: none;
+}
+
+.img_gallery img.meme-show {
+	display: block;
+}
+
+.each_text label, .each_text input {
+	display: block;
+}
+
+.each_text label {
+	padding: 20px 0 0 0;
+}
