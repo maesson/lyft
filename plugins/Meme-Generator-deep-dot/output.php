@@ -245,6 +245,21 @@ var ny_mainimg;
 		$hpt.val(u);
 		createMeme();
 	}
+
+	function changeTextLeftRight(pru,pu)
+	{
+		var	u		= '';
+		var $prp	= jQuery(pru);
+		var $hpt	= $prp.find('.textupdown');
+			u		= $hpt.val();
+			u		= +u;
+		if(pu==='up')
+			u--;
+		else
+			u++
+		$hpt.val(u);
+		createMeme();
+	}
 	
 	function changeCaps(po,c)
 	{
@@ -255,6 +270,16 @@ var ny_mainimg;
 	}
 	
     </script>
+    	<div id="meme-main">
+			<p><strong>Say <em>hello</em> to your digital stylist.</strong><br> 
+			Give your your online presence a boost with our exclusive, online swag. Follow the simple instructions below.</p>
+			<p><strong>Step One:</strong> Select a design.</p> 
+			
+			<p><strong>Step Two:</strong> Insert your promo code. Use the arrows to move the text box next to the ‘Use Promo Code’ section.</p> 
+			
+			<p><strong>Step Three:</strong> Click the ‘Download’ Button and Share on Social Media!</p> 
+    	</div>
+
         <div class="right_content">
         	<div class="img_gallery">
             	<h3 class="ny_aligncen">Random Images</h3>
@@ -280,10 +305,12 @@ var ny_mainimg;
         
         <div class="leftt_content">
         	<div class="img_gallery">
-            	<h3 class="ny_aligncen">Main Images</h3>
-            	<ul>
-            		<li>Facebook</li>
-            		<li>Twitter</li>
+            	<h3 class="ny_aligncen">Select Image</h3>
+            	<h4 class="sort-heading">Sort By</h4>
+            	<ul id="meme-order">
+            		<li><div id="set-facebook"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/fb.png"></div></li>
+            		<li><div id="set-instagram"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/ig.png"></div></li>
+            		<li><div id="set-twitter"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/tw.png"></div></li>
             	</ul>
                 <?php 
 					$path 		= $imgpath.'thumbnail/';
@@ -305,26 +332,28 @@ var ny_mainimg;
         
     	<div class="left_content" style="margin:0 202px;">
         
-        	<h2 class="ny_aligncen" style="clear:none;">meme generator</h2>
+        	<h2 class="ny_aligncen" style="clear:none;"></h2>
             <div class="meme_box">
             	<div class="img_box ny_acenter">
-                	<img id="meme_image" class="meme_img" src="<?php echo $imgpath.'main/'.$imgm; ?>" width="400" />
-                    <img id="meme_text_img" style="position:absolute; top:6px; left:6px;" width="400" />
+                	<img id="meme_image" class="meme_img" src="<?php echo $imgpath.'main/'.$imgm; ?>" />
+                    <img id="meme_text_img" style="position:absolute; top:6px; left:2px;" />
                     <div id="loading_text">Loading...</div>
                 </div>
                 <div class="form_box">
                  
-                <form style="padding:10px;width:400px;border-bottom:1px solid #aaa; margin-bottom:10px;"  class="ny_acenter" action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data" >
+                <form style="padding:10px;width:400px; margin-bottom:0;"  class="ny_acenter" action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data" >
                 	<div class="form-hide">
 	                    <input type="file" name="image" />
 	                    <input type="submit" value="Upload" name="upload" class="button-primary" />
 	                </div>
                 </form>
                 	<form onsubmit="javascript:return checkFormData(this);" style="width:400px" class="ny_acenter" action="<?php echo $acurl; ?>" method="post" id="meme_form">
+                <!-- 
                 <div style="margin:10px 0;">
                   Meme Title : 
                   <input type="text" name="meme-title" value="" />
                 </div>
+                -->
                 <div id="select-font">
                 	Select Font : 
                     <select id="font-name" name="font">
@@ -353,15 +382,14 @@ var ny_mainimg;
 					$offsetb	= floor(($ihei- 30 - 60)/3) - 10 ; 
 					for($i=0;$i<2;$i++){ ?>	
                     <div class="each_text">
-                    	<label>Text <?php echo $i+1; ?></label>
+                    	<label>Enter Your Code Here</label>
                         <input onkeyup="javascript:createMeme();return false;"  type="text" value="" placeholder="add some text" name="memetext[]"/>
                         <a href="#" onclick="javascript:changeTextUpDown(this.parentNode,'up');return false;">move up</a> |
                         <a href="#" onclick="javascript:changeTextUpDown(this.parentNode,'down');return false;">move down</a>     
-                        <br/>
                         <a href="#" onclick="javascript:changeTextPosition(this.parentNode,1);return false;">left</a> | 
                         <a href="#"  onclick="javascript:changeTextPosition(this.parentNode,2);return false;">center</a> | 
                         <a href="#"  onclick="javascript:changeTextPosition(this.parentNode,3);return false;">right</a>
-						(
+						<br>(
                         <a href="#"  onclick="javascript:changeCaps(this.parentNode,'caps');return false;">All Caps</a> |
                         <a href="#"  onclick="javascript:changeCaps(this.parentNode,'small');return false;">All Small</a>
 						) 
@@ -370,15 +398,15 @@ var ny_mainimg;
                        <input class="textpos" type="hidden" value="2" name="textpos[]" /> 
                      </div>
                      <?php } ?>
-                     <div class="add_another">
+                     <!-- <div class="add_another">
                      	<input type="button" name="anl" onclick="javascript:addNewLine(this.parentNode);" value="add new line" />
-                     </div>
+                     </div> -->
                      	<input type="hidden" value="<?php echo $mid; ?>" name="mid" />
                      	<input type="hidden" id="check_text" value="" name="written" />
                      	<input type="hidden" id="ny_mainimg" value="" name="mainimg" />
                         
                     	
-                        <div style="text-align:center;"><input type="submit" value="submit" name="submit" id="meme_submit_btn" disabled="disabled" /></div>
+                        <div style="text-align:left;"><input type="submit" value="submit" name="submit" id="meme_submit_btn" disabled="disabled" /></div>
                     </form>
                     
                 
@@ -389,14 +417,44 @@ var ny_mainimg;
     	<div class="ny_clear"></div>
     </div>
     <script>
-    //shows the images you want to see
-    	$('.img_gallery img').addClass("hide");
+    //size must be dynamic with their selection
+    var selectedSize = 851;
+    var order = "facebook";
+
+    $('.img_box').css("width", selectedSize + "px");
+
+    
+    $('.img_gallery img').addClass("hide");
+    hide();
+
+    $('#set-facebook').click(function(){
+    	order = "facebook";
+    	$('.img_gallery img').removeClass("meme-show");
+    	hide();
+    });
+
+    $('#set-instagram').click(function(){
+    	order = "instagram";
+    	$('.img_gallery img').removeClass("meme-show");
+    	hide();
+    });
+
+    $('#set-twitter').click(function(){
+    	order = "twitter";
+    	$('.img_gallery img').removeClass("meme-show");
+    	hide();
+    });
+
+    function hide() {
+    	//shows the images you want to see
     	$('.img_gallery img').addClass(function () {
-		    if (this.src.replace(/^.*\//, '').indexOf('facebook') > -1) {
+		    if (this.src.replace(/^.*\//, '').indexOf(order) > -1) {
 		         return 'meme-show';
 		    }
 		    return false;
 		});
+    }
+
     </script>
    
 <?php }} ?>

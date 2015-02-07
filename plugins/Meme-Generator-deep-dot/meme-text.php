@@ -3,8 +3,8 @@ if(!isset($_REQUEST['memetext'])) return false;
 
 global $submit,$ppath,$fontsize,$fontstrike,$fontfile,$offset,$textpos,$updown,$textcaps,$mainimg;
 
-	$fontsize	= 25;
-	$fontstrike	= 3;
+	$fontsize	= 20;
+	$fontstrike	= 2;
 	$fontfile	= 'nymeme.ttf';
 	$offset		= 10;
 	if( isset($_REQUEST['font']) )

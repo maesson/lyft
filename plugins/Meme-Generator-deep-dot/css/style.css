@@ -17,13 +17,13 @@
 
 .ny_acenter{
 
-	margin:0 auto;
+	margin:0;
 
 	}
 
 .ny_aligncen{
 
-	text-align:center;
+	text-align:left;
 
 	}
 
@@ -58,9 +58,9 @@
 
 #meme_image{
 
-	padding:5px;
+	padding:0;
 
-	border:1px solid #ddd;
+	border:none;
 	}
 #meme_text_img,#meme_image{
 	max-width:100%;
@@ -93,6 +93,7 @@
 
 	border-right:1px solid #eee;
 	border-left:none;
+	padding-right: 10px;
 
 	}
 .img_gallery img{
@@ -105,7 +106,7 @@
 
 	background-color:#fff;
 
-	margin:20px;
+	margin:20px 0;
 
 	}
 
