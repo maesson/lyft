@@ -327,7 +327,7 @@ p {
 }
 
 #content {
-	overflow-y: scroll;
+	/*overflow-y: scroll;*/
 }
 
 #img_gallery img {
